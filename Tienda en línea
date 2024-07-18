@@ -1,0 +1,44 @@
+Ejercicio
+Contexto
+Tienes una tienda en línea que vende diversos productos. Deseas crear una base de datos para gestionar los productos y calcular automáticamente el valor total de cada producto basado en su precio y la cantidad en inventario.
+
+Pasos del Ejercicio
+Crear la tabla de productos: Define una tabla productos con las siguientes columnas:
+
+id (INT, Primary Key)
+nombre (VARCHAR(100))
+precio (DECIMAL(10, 2))
+cantidad (INT)
+valor_total (DECIMAL(10, 2)): Esta será una columna calculada almacenada que representa el valor total del producto en inventario (precio * cantidad).
+Insertar datos: Inserta al menos 3 registros en la tabla productos.
+
+Consultar la tabla: Realiza una consulta para obtener todos los productos y sus valores totales.
+
+use datos1;
+create table productos(
+    id int,
+    precio decimal(10,2),
+    cantidad int,
+    valor_total decimal (10, 2) generated always as (precio * cantidad) virtual
+    );
+    
+create table productos(
+    id int,
+    precio decimal(10,2),
+    cantidad int,
+    valor_total decimal (10, 2) generated always as (precio * cantidad) stored
+    );
+    
+    create table empleados(
+    id int primary key,
+    horas_trabajadas int,
+    tarifa_hora decimal(10,2),
+    salario_total decimal(10, 2) generated always as (horas_trabajadas * tarifa_hora) stored
+    );
+    alter table empleados add column nombre varchar(100);
+    describe empleados;
+    insert into empleados(id, horas_trabajadas, tarifa_hora, nombre) values 
+    (1, 40, 29, 'Juan Pérez'),
+    (2, 100, 20, 'Ana López');
+    
+    select * from empleados;
