@@ -1,0 +1,26 @@
+Ejercicios Prácticos
+1.	Calcular el valor absoluto de una columna de números:
+SELECT abs(-5) as valor_absoluto;
+
+2.	Redondear los precios a dos decimales:
+select ceil(4.2) as valor;
+
+3.	Calcular la potencia de base y exponente dados en columnas:
+select power(2, 3) as potencia;
+
+4.	Obtener la raíz cuadrada de los valores en una columna:
+select sqrt(16) as raiz_cuadrada;
+
+5.	Generar un número aleatorio para cada fila en una tabla:
+select rand() as aleatorio;
+
+6.	Truncar los valores de una columna a un decimal:
+select truncate(4.567, 1) as truncado;
+
+7.	Obtener el techo y el piso de los valores en una columna:
+select floor(4.8) as redondeo;
+
+select mod(10, 3) as resto;
+
+
+
