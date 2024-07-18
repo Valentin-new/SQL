@@ -1,0 +1,30 @@
+Ejercicios Prácticos
+Aquí tienes algunos ejercicios prácticos adicionales para reforzar tu comprensión:
+1.	Concatenar nombre y apellido:
+select concat('el usuario es:', ' ', 'Carlos') as saludo;
+
+2.	Extraer el dominio de un correo electrónico:
+select substring('hola mundo', 6, 5) as datos;
+select instr('programación en cobol', 'cobol');
+
+3.	Convertir a mayúsculas los nombres de productos:
+select upper('programación en cobol') as mayúsculas;
+select lower('PROGRAMACIÓN EN COBOL') as minúsculas;
+
+4.	Reemplazar un texto en una descripción de producto:
+select replace('estamos estudiando cobol', 'estudiando', 'aprendiendo') as reemplazar;
+
+5.	Eliminar espacios en blanco de un nombre de usuario:
+SELECT trim('      COBOL       ')  as cadena_sin_espacios;
+
+
+
+
+select length('Hola Mundo') as longitud;
+
+
+
+
+
+
+
