@@ -1,0 +1,45 @@
+-- Crear la tabla empleados (si no existe ya)
+CREATE TABLE IF NOT EXISTS empleados (
+    empleado_id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    puesto VARCHAR(100) DEFAULT 'Empleado',
+    salario DECIMAL(10, 2) DEFAULT 1000.00,
+    fecha_contratacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Insertar datos de ejemplo
+INSERT INTO empleados (nombre, puesto, salario) VALUES 
+('Carlos Perez', 'Gerente', 3000.00),
+('Ana Gomez', 'Analista', 2500.00),
+('Luis Martinez', 'Desarrollador', 2000.00);
+
+-- Eliminar un registro específico
+DELETE FROM empleados WHERE empleado_id = 2;
+
+-- Crear una tabla temporal
+CREATE TEMPORARY TABLE empleados_temp (
+    nombre VARCHAR(100) NOT NULL,
+    puesto VARCHAR(100) DEFAULT 'Empleado',
+    salario DECIMAL(10, 2) DEFAULT 1000.00,
+    fecha_contratacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Insertar los datos ordenados en la tabla temporal
+INSERT INTO empleados_temp (nombre, puesto, salario, fecha_contratacion)
+SELECT nombre, puesto, salario, fecha_contratacion
+FROM empleados
+ORDER BY empleado_id;
+
+-- Eliminar los datos de la tabla original
+TRUNCATE TABLE empleados;
+
+-- Insertar los datos de la tabla temporal de nuevo en la tabla original
+INSERT INTO empleados (nombre, puesto, salario, fecha_contratacion)
+SELECT nombre, puesto, salario, fecha_contratacion
+FROM empleados_temp;
+
+-- Eliminar la tabla temporal
+DROP TEMPORARY TABLE empleados_temp;
+
+-- Verificar los registros restantes
+SELECT * FROM empleados;
